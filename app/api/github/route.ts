@@ -4,39 +4,56 @@ export async function GET() {
   const username = process.env.GITHUB_USERNAME;
 
   if (!username) {
+    console.error("[GitHub API] GITHUB_USERNAME environment variable is not configured.");
     return NextResponse.json(
       { error: "GitHub username not configured" },
       { status: 500 }
     );
   }
 
+  const headers: Record<string, string> = {
+    Accept: "application/vnd.github.v3+json",
+    "User-Agent": `cv-portfolio-${username}`,
+  };
+
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
+
   try {
     const [userRes, reposRes] = await Promise.all([
       fetch(`https://api.github.com/users/${username}`, {
-        headers: {
-          Accept: "application/vnd.github.v3+json",
-          ...(process.env.GITHUB_TOKEN && {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-          }),
-        },
+        headers,
         next: { revalidate: 3600 },
       }),
       fetch(
         `https://api.github.com/users/${username}/repos?sort=updated&per_page=10&type=owner`,
         {
-          headers: {
-            Accept: "application/vnd.github.v3+json",
-            ...(process.env.GITHUB_TOKEN && {
-              Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-            }),
-          },
+          headers,
           next: { revalidate: 3600 },
         }
       ),
     ]);
 
     if (!userRes.ok || !reposRes.ok) {
-      throw new Error("GitHub API error");
+      const userErr = !userRes.ok ? await userRes.text() : null;
+      const reposErr = !reposRes.ok ? await reposRes.text() : null;
+      console.error("[GitHub API] Error response from GitHub:", {
+        userStatus: userRes.status,
+        userErr,
+        reposStatus: reposRes.status,
+        reposErr,
+      });
+      return NextResponse.json(
+        {
+          error: "GitHub API error",
+          details: {
+            userStatus: userRes.status,
+            reposStatus: reposRes.status,
+          },
+        },
+        { status: userRes.status !== 200 ? userRes.status : reposRes.status }
+      );
     }
 
     const user = await userRes.json();
@@ -71,7 +88,8 @@ export async function GET() {
         })
       ),
     });
-  } catch {
+  } catch (err) {
+    console.error("[GitHub API] Unexpected error:", err);
     return NextResponse.json(
       { error: "Failed to fetch GitHub data" },
       { status: 500 }
