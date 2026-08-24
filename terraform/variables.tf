@@ -35,9 +35,9 @@ variable "serverless_function_region" {
 }
 
 variable "custom_domain" {
-  description = "Custom domain name to attach to the project (e.g. nguyenbaoduy.dev)"
+  description = "Optional custom domain name to attach (leave empty to use Vercel's auto-generated *.vercel.app domain)"
   type        = string
-  default     = "nguyenbaoduy.dev"
+  default     = ""
 }
 
 # Environment Variables
@@ -70,7 +70,7 @@ variable "env_email_service_api_key" {
 variable "env_next_public_site_url" {
   description = "Public URL of the portfolio website"
   type        = string
-  default     = "https://nguyenbaoduy.dev"
+  default     = "https://cv-portfolio.vercel.app"
 }
 
 variable "env_next_public_ga_id" {

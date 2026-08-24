@@ -7,12 +7,12 @@ project_name               = "cv-portfolio"
 github_repo                = "Enbidi77/cv-portfolion"
 production_branch          = "master"
 serverless_function_region = "sin1" # sin1 (Singapore), hnd1 (Tokyo), iad1 (US East)
-custom_domain              = "nguyenbaoduy.dev"
+custom_domain              = "" # Leave empty to use Vercel's auto-generated *.vercel.app domain
 
 # Environment Variables
 env_github_username       = "Enbidi77"
 env_github_token          = "" # Optional GitHub Token
 env_contact_email         = "nguyenduy.fwk@gmail.com"
 env_email_service_api_key = "" # Optional Resend / Sendgrid API key
-env_next_public_site_url  = "https://nguyenbaoduy.dev"
+env_next_public_site_url  = "https://cv-portfolio.vercel.app"
 env_next_public_ga_id     = "" # Optional GA Measurement ID
