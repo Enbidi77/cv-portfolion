@@ -1,0 +1,138 @@
+{
+  "common": {
+    "en": "English",
+    "vi": "Tiếng Việt",
+    "toggleTheme": "Chuyển giao diện",
+    "changeLanguage": "Thay đổi ngôn ngữ",
+    "close": "Đóng",
+    "open": "Mở",
+    "loading": "Đang tải..."
+  },
+  "metadata": {
+    "title": "NGUYEN BAO DUY — Lập trình viên Fullstack",
+    "description": "Kỹ sư phần mềm Fullstack / Backend giàu kinh nghiệm xây dựng ứng dụng web mở rộng với Java Spring Boot, ASP.NET Core, NestJS và các công nghệ frontend hiện đại."
+  },
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "experience": "Kinh nghiệm",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "contact": "Liên hệ",
+    "resume": "Hồ sơ CV",
+    "downloadResume": "Tải CV",
+    "menu": "Menu",
+    "backToTop": "Lên đầu trang",
+    "allProjects": "Tất cả dự án"
+  },
+  "hero": {
+    "availableBadge": "Sẵn sàng đón nhận cơ hội mới",
+    "greeting": "Xin chào, tôi là",
+    "role": "Lập trình viên Fullstack",
+    "tagline": "Xây dựng ứng dụng web có khả năng mở rộng, hệ thống thời gian thực và trải nghiệm kỹ thuật số hiện đại.",
+    "viewProjects": "Xem dự án",
+    "contactMe": "Liên hệ với tôi",
+    "findMeOn": "Kết nối qua",
+    "scroll": "Cuộn xuống",
+    "codeVisual": {
+      "role": "Kỹ sư Fullstack",
+      "passion": "Xây dựng hệ thống hiệu năng cao"
+    }
+  },
+  "about": {
+    "title": "Về bản thân",
+    "subtitle": "Khám phá hành trình và định hướng phát triển phần mềm của tôi",
+    "description": "Tôi là một Lập trình viên Fullstack với kinh nghiệm thực tế xuyên suốt quy trình phát triển phần mềm — từ thiết kế kiến trúc backend, xây dựng RESTful API đến phát triển giao diện người dùng mượt mà và triển khai hệ thống trên nền tảng đám mây.\n\nThế mạnh của tôi bao gồm các hệ thống doanh nghiệp (Java Spring Boot, ASP.NET Core, NestJS), framework frontend hiện đại (React, Next.js, Angular) và điện toán đám mây (AWS, Azure). Tôi đặc biệt đam mê hệ thống truyền thông thời gian thực, kiến trúc microservices và phát triển phần mềm có khả năng chịu tải lớn.\n\nHiện tại, tôi tập trung vào phát triển hệ thống ERP doanh nghiệp, tối ưu hóa hiệu năng cơ sở dữ liệu và ứng dụng các công cụ AI vào quy trình kỹ thuật phần mềm.",
+    "cards": {
+      "experience": "Kinh nghiệm",
+      "experienceValue": "2+ Năm",
+      "focus": "Định hướng",
+      "focusValue": "Phát triển Fullstack",
+      "currentRole": "Vai trò hiện tại",
+      "currentRoleValue": "Phát triển ERP doanh nghiệp",
+      "location": "Địa điểm",
+      "locationValue": "Việt Nam"
+    }
+  },
+  "experience": {
+    "title": "Kinh nghiệm làm việc",
+    "subtitle": "Hành trình phát triển sự nghiệp trong ngành kỹ thuật phần mềm",
+    "currentBadge": "Hiện tại"
+  },
+  "skills": {
+    "title": "Kỹ năng & Công nghệ",
+    "subtitle": "Các công nghệ và công cụ tôi sử dụng để phát triển các ứng dụng web hiện đại",
+    "technologiesCount": "{count} công nghệ",
+    "levels": {
+      "beginner": "Đang tìm hiểu",
+      "intermediate": "Thành thạo",
+      "advanced": "Chuyên sâu",
+      "expert": "Chuyên gia"
+    }
+  },
+  "projects": {
+    "title": "Dự án tiêu biểu",
+    "subtitle": "Tổng hợp các dự án thể hiện năng lực phát triển fullstack, hệ thống thời gian thực và kiến trúc đám mây",
+    "viewDetails": "Chi tiết dự án",
+    "viewProject": "Xem dự án",
+    "allProjects": "Tất cả dự án",
+    "allProjectsSubtitle": "Khám phá toàn bộ mã nguồn mở, hệ thống fullstack và ứng dụng web tôi đã xây dựng",
+    "backToHome": "Về trang chủ",
+    "backToProjects": "Về danh sách dự án",
+    "liveDemo": "Xem trực tiếp",
+    "sourceCode": "Mã nguồn",
+    "keyFeatures": "Tính năng nổi bật",
+    "architecture": "Kiến trúc hệ thống",
+    "challenges": "Thách thức kỹ thuật",
+    "solutions": "Giải pháp triển khai",
+    "filterAll": "Tất cả phân loại",
+    "searchPlaceholder": "Tìm kiếm dự án theo tên hoặc công nghệ...",
+    "noProjectsFound": "Không tìm thấy dự án phù hợp với tiêu chí tìm kiếm."
+  },
+  "github": {
+    "title": "Hoạt động GitHub",
+    "subtitle": "Đóng góp mã nguồn mở và các kho lưu trữ cá nhân",
+    "repos": "Kho mã",
+    "followers": "Người theo dõi",
+    "following": "Đang theo dõi",
+    "repositoriesCount": "{count} kho lưu trữ",
+    "technologyDistribution": "Phân bổ công nghệ",
+    "error": "Hiện không thể tải dữ liệu từ GitHub.",
+    "tryAgain": "Thử lại"
+  },
+  "contact": {
+    "title": "Liên hệ với tôi",
+    "subtitle": "Bạn có ý tưởng dự án hoặc cơ hội hợp tác? Đừng ngần ngại nhắn tin cho tôi.",
+    "letsConnect": "Kết nối",
+    "connectDescription": "Hãy gửi lời nhắn qua biểu mẫu hoặc kết nối qua các kênh dưới đây. Tôi thường phản hồi trong vòng 24 giờ.",
+    "location": "Địa điểm",
+    "locationValue": "Việt Nam",
+    "form": {
+      "name": "Họ và tên",
+      "namePlaceholder": "Tên của bạn",
+      "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "subject": "Tiêu đề",
+      "subjectPlaceholder": "Nội dung cần trao đổi...",
+      "message": "Nội dung tin nhắn",
+      "messagePlaceholder": "Hãy chia sẻ về dự án hoặc cơ hội hợp tác của bạn...",
+      "send": "Gửi tin nhắn",
+      "sending": "Đang gửi...",
+      "success": "Gửi tin nhắn thành công! Tôi sẽ liên hệ lại với bạn sớm nhất.",
+      "error": "Gửi tin nhắn thất bại. Vui lòng thử lại hoặc gửi email trực tiếp."
+    },
+    "validation": {
+      "name": "Vui lòng nhập họ và tên (tối thiểu 2 ký tự)",
+      "email": "Vui lòng nhập địa chỉ email hợp lệ",
+      "subject": "Vui lòng nhập tiêu đề (tối thiểu 3 ký tự)",
+      "message": "Nội dung tin nhắn phải có ít nhất 10 ký tự"
+    }
+  },
+  "footer": {
+    "quickLinks": "Liên kết nhanh",
+    "builtWith": "Công nghệ sử dụng",
+    "copyright": "© {year} {name}. Tất cả các quyền được bảo lưu.",
+    "madeWith": "Xây dựng với",
+    "backToTop": "Lên đầu trang"
+  }
+}

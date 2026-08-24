@@ -1,0 +1,138 @@
+{
+  "common": {
+    "en": "English",
+    "vi": "Tiếng Việt",
+    "toggleTheme": "Toggle theme",
+    "changeLanguage": "Change language",
+    "close": "Close",
+    "open": "Open",
+    "loading": "Loading..."
+  },
+  "metadata": {
+    "title": "NGUYEN BAO DUY — Fullstack Web Developer",
+    "description": "Fullstack/Backend Software Engineer with experience developing scalable web applications using Java Spring Boot, ASP.NET Core, NestJS, and modern frontend technologies."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "resume": "Resume",
+    "downloadResume": "Download Resume",
+    "menu": "Menu",
+    "backToTop": "Back to top",
+    "allProjects": "All Projects"
+  },
+  "hero": {
+    "availableBadge": "Available for opportunities",
+    "greeting": "Hi, I'm",
+    "role": "Fullstack Web Developer",
+    "tagline": "Building scalable web applications, real-time systems, and modern digital experiences.",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "findMeOn": "Find me on",
+    "scroll": "Scroll",
+    "codeVisual": {
+      "role": "Fullstack Developer",
+      "passion": "Building scalable systems"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know me and my journey as a developer",
+    "description": "I am a Fullstack Web Developer with hands-on experience across the full software development lifecycle — from designing backend architectures and building RESTful APIs, to crafting responsive frontend interfaces and deploying applications to the cloud.\n\nMy expertise spans enterprise backend systems (Java Spring Boot, ASP.NET Core, NestJS), modern frontend frameworks (React, Next.js, Angular), and cloud platforms (AWS, Azure). I have a strong passion for real-time communication systems, microservices architecture, and building software that scales.\n\nCurrently, I'm focused on enterprise ERP development, optimizing database performance, and leveraging AI-assisted tools to improve development workflows.",
+    "cards": {
+      "experience": "Experience",
+      "experienceValue": "2+ Years",
+      "focus": "Focus",
+      "focusValue": "Fullstack Development",
+      "currentRole": "Current Role",
+      "currentRoleValue": "Enterprise ERP Development",
+      "location": "Location",
+      "locationValue": "Vietnam"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey in software development",
+    "currentBadge": "Current"
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "Technologies and tools I work with to build modern web applications",
+    "technologiesCount": "{count} technologies",
+    "levels": {
+      "beginner": "Learning",
+      "intermediate": "Comfortable",
+      "advanced": "Proficient",
+      "expert": "Expert"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of projects that showcase my skills in full-stack development, real-time systems, and cloud architecture",
+    "viewDetails": "View Details",
+    "viewProject": "View Project",
+    "allProjects": "All Projects",
+    "allProjectsSubtitle": "Explore all of my open-source work, full-stack systems, and web applications",
+    "backToHome": "Back to Home",
+    "backToProjects": "Back to Projects",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code",
+    "keyFeatures": "Key Features",
+    "architecture": "Architecture Flow",
+    "challenges": "Challenges",
+    "solutions": "Solutions",
+    "filterAll": "All Categories",
+    "searchPlaceholder": "Search projects by name or technology...",
+    "noProjectsFound": "No projects match your search criteria."
+  },
+  "github": {
+    "title": "GitHub Activity",
+    "subtitle": "Open source contributions and personal repositories",
+    "repos": "Repos",
+    "followers": "Followers",
+    "following": "Following",
+    "repositoriesCount": "{count} repositories",
+    "technologyDistribution": "Technology Distribution",
+    "error": "Unable to load GitHub data at this time.",
+    "tryAgain": "Try again"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind or want to discuss opportunities? I'd love to hear from you.",
+    "letsConnect": "Let's Connect",
+    "connectDescription": "Feel free to reach out through the form or any of the channels below. I typically respond within 24 hours.",
+    "location": "Location",
+    "locationValue": "Vietnam",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project or opportunity...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Failed to send message. Please try again or email me directly."
+    },
+    "validation": {
+      "name": "Name is required (at least 2 characters)",
+      "email": "Please enter a valid email address",
+      "subject": "Subject is required (at least 3 characters)",
+      "message": "Message must be at least 10 characters"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "builtWith": "Built With",
+    "copyright": "© {year} {name}. All rights reserved.",
+    "madeWith": "Built with",
+    "backToTop": "Back to top"
+  }
+}
