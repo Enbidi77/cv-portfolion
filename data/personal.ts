@@ -19,7 +19,7 @@ export const personalInfo: PersonalInfo = {
     vi: "Việt Nam",
   },
   email: "contact@nguyenduy.fwk@gmail.com",
-  resumeUrl: "https://drive.google.com/file/d/1cV5nTsf8sLG3iUvtFOo9e7L2H95pffUc/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1C1vLqeZNIXZr15uETnkLPOngSoNjq3KW/view?usp=sharing",
 };
 
 export const socialLinks: SocialLink[] = [
