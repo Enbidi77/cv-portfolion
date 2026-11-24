@@ -11,9 +11,11 @@ import {
   Moon,
   Download,
   Code2,
+  Search,
 } from "lucide-react";
 import { navItems, personalInfo } from "@/data/personal";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { CommandPalette } from "@/components/ui/CommandPalette";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -23,18 +25,38 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
   const mounted = useSyncExternalStore(
     emptySubscribe,
     () => true,
     () => false
   );
+  const isMac = useSyncExternalStore(
+    emptySubscribe,
+    () => /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent),
+    () => false
+  );
   const { theme, setTheme } = useTheme();
   const t = useTranslations("navigation");
   const tCommon = useTranslations("common");
+  const tCommand = useTranslations("commandPalette");
   const pathname = usePathname();
   const router = useRouter();
 
   const isHomePage = pathname === "/" || pathname === "";
+
+  // Global keyboard shortcut for Command Palette (Cmd+K / Ctrl+K)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setIsCommandOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -173,6 +195,29 @@ export function Navbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
+            {/* Command Palette Button Pill (Desktop / Tablet) */}
+            <button
+              onClick={() => setIsCommandOpen(true)}
+              className="hidden sm:inline-flex items-center gap-2 rounded-full border border-border/70 bg-secondary/50 px-3 py-1.5 text-xs text-muted-foreground transition-all duration-200 hover:border-primary/40 hover:bg-secondary hover:text-foreground cursor-pointer shadow-xs group"
+              aria-label={tCommand("openPalette")}
+            >
+              <Search className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+              <span className="hidden lg:inline">{tCommand("searchPlaceholderShort")}</span>
+              <span className="inline lg:hidden">{tCommand("search")}</span>
+              <kbd className="inline-flex items-center gap-0.5 rounded border border-border bg-background/80 px-1.5 py-0.5 font-mono text-[10px] font-medium text-muted-foreground shadow-2xs">
+                <span>{isMac ? "⌘" : "Ctrl"}</span>K
+              </kbd>
+            </button>
+
+            {/* Mobile Search Button */}
+            <button
+              onClick={() => setIsCommandOpen(true)}
+              className="flex sm:hidden h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              aria-label={tCommand("openPalette")}
+            >
+              <Search className="h-4 w-4" />
+            </button>
+
             {/* Language Switcher */}
             <LanguageSwitcher className="hidden sm:inline-flex" />
 
@@ -282,6 +327,26 @@ export function Navbar() {
                 </button>
               </div>
 
+              {/* Mobile Command Palette Trigger */}
+              <div className="px-4 pt-3 pb-1">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsCommandOpen(true);
+                  }}
+                  className="flex w-full items-center justify-between rounded-xl bg-secondary/60 px-3.5 py-2.5 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+                  aria-label={tCommand("openPalette")}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Search className="h-4 w-4" />
+                    <span>{tCommand("searchPlaceholderShort")}</span>
+                  </div>
+                  <kbd className="font-mono text-[10px] bg-background/80 border border-border px-1.5 py-0.5 rounded">
+                    {isMac ? "⌘" : "Ctrl"}K
+                  </kbd>
+                </button>
+              </div>
+
               {/* Mobile Navigation links */}
               <nav className="flex flex-col gap-1 p-4">
                 {navItems.map((item, index) => {
@@ -325,6 +390,12 @@ export function Navbar() {
           </>
         )}
       </AnimatePresence>
+
+      {/* Command Palette Modal */}
+      <CommandPalette
+        open={isCommandOpen}
+        onOpenChange={setIsCommandOpen}
+      />
     </>
   );
 }

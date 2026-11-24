@@ -5,14 +5,14 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import {
   ExternalLink,
   ArrowLeft,
-  ChevronDown,
-  Layers,
   CheckCircle2,
   AlertTriangle,
   Lightbulb,
   Sparkles,
 } from "lucide-react";
 import { GithubIcon } from "@/components/ui/brand-icons";
+import { BrowserFrame } from "@/components/ui/BrowserFrame";
+import { ArchitectureFlow } from "@/components/sections/ArchitectureFlow";
 import { routing } from "@/i18n/routing";
 import { projects, getProjectBySlug } from "@/data/projects";
 import { Link } from "@/i18n/navigation";
@@ -146,17 +146,23 @@ export default async function ProjectDetailPage({
           </div>
         </div>
 
-        {/* Hero Image Showcase */}
-        <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-border bg-secondary shadow-xl">
-          <Image
-            src={project.image}
-            alt={project.title[validLocale]}
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-          />
-        </div>
+        {/* Hero Image Showcase inside Browser Mockup */}
+        <BrowserFrame
+          url={project.previewUrl || project.liveUrl || `https://${project.slug}.vercel.app`}
+          externalUrl={project.liveUrl}
+          className="rounded-2xl border border-border shadow-xl"
+        >
+          <div className="relative aspect-video w-full overflow-hidden bg-secondary">
+            <Image
+              src={project.image}
+              alt={project.title[validLocale]}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+          </div>
+        </BrowserFrame>
 
         {/* Technologies Grid */}
         <div className="rounded-2xl border border-border bg-card p-6 shadow-sm space-y-3">
@@ -205,40 +211,14 @@ export default async function ProjectDetailPage({
           </div>
         </div>
 
-        {/* Architecture Section (Pure UI components, no image) */}
+        {/* Architecture Section (Connected Flow) */}
         {project.architecture && project.architecture.length > 0 && (
           <div className="space-y-6 rounded-2xl border border-border bg-secondary/30 p-6 sm:p-8">
-            <div className="flex items-center gap-2">
-              <Layers className="h-5 w-5 text-primary" />
-              <h2 className="text-2xl font-bold text-foreground">
-                {t("architecture")}
-              </h2>
-            </div>
-
-            <div className="flex flex-col items-center gap-0 py-4 max-w-lg mx-auto w-full">
-              {project.architecture.map((node, index) => {
-                const isNotLast = index < (project.architecture?.length ?? 0) - 1;
-                return (
-                  <div key={node.label} className="flex flex-col items-center w-full">
-                    <div className="w-full rounded-2xl border border-border bg-card p-5 text-center shadow-md transition-all hover:border-primary/50">
-                      <p className="text-base font-bold text-foreground font-mono">
-                        {node.label}
-                      </p>
-                      {node.description && (
-                        <p className="mt-1 text-xs text-muted-foreground">
-                          {node.description[validLocale]}
-                        </p>
-                      )}
-                    </div>
-                    {isNotLast && (
-                      <div className="flex h-8 items-center">
-                        <ChevronDown className="h-5 w-5 text-primary animate-bounce" />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+            <ArchitectureFlow
+              nodes={project.architecture}
+              locale={validLocale}
+              heading={t("architecture")}
+            />
           </div>
         )}
 

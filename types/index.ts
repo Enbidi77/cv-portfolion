@@ -45,10 +45,13 @@ export interface AboutCard {
 export interface Experience {
   id: string;
   company: string;
+  monogram?: string;
   role: Localized<string>;
   period: Localized<string>;
   isCurrent: boolean;
   responsibilities: Localized<string[]>;
+  technologies?: string[];
+  impactBadges?: Localized<string[]>;
 }
 
 export type SkillLevel = "beginner" | "intermediate" | "advanced" | "expert";
@@ -69,7 +72,11 @@ export interface SkillCategory {
 export interface ArchitectureNode {
   label: string;
   description?: Localized<string>;
+  layer?: string;
+  protocol?: string;
 }
+
+export type ProjectCategory = "all" | "fullstack" | "realtime" | "enterprise";
 
 export interface Project {
   id: string;
@@ -78,6 +85,9 @@ export interface Project {
   shortDescription: Localized<string>;
   fullDescription: Localized<string>;
   image: string;
+  category?: ProjectCategory;
+  categories?: ProjectCategory[];
+  previewUrl?: string;
   technologies: string[];
   features: Localized<string[]>;
   githubUrl?: string;

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { GithubIcon } from "@/components/ui/brand-icons";
+import { BrowserFrame } from "@/components/ui/BrowserFrame";
 import { Link } from "@/i18n/navigation";
 import type { Project, Locale } from "@/types";
 import { cn } from "@/lib/utils";
@@ -158,17 +159,23 @@ export function ProjectsListClient({
               transition={{ duration: 0.3, delay: index * 0.05 }}
               className="group flex flex-col rounded-2xl border border-border bg-card overflow-hidden shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1.5"
             >
-              {/* Image Banner */}
-              <div className="relative aspect-video w-full bg-secondary overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title[locale]}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </div>
+              {/* Browser Mockup Banner */}
+              <BrowserFrame
+                url={project.previewUrl || project.liveUrl || `https://${project.slug}.vercel.app`}
+                externalUrl={project.liveUrl}
+                className="rounded-t-2xl border-0 border-b border-border/80 shadow-none"
+              >
+                <div className="relative aspect-video w-full bg-secondary overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title[locale]}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </div>
+              </BrowserFrame>
 
               {/* Card Body */}
               <div className="flex flex-1 flex-col p-6 space-y-4">

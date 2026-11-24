@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   Play,
@@ -18,9 +18,8 @@ import {
   ExternalLink,
   Tv,
 } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { personalInfo } from "@/data/personal";
-import type { Locale } from "@/types";
 import { cn } from "@/lib/utils";
 
 function SectionHeader({
@@ -66,7 +65,6 @@ function formatTime(seconds: number): string {
 
 export function Showreel() {
   const t = useTranslations("showreel");
-  const locale = useLocale() as Locale;
 
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: "-60px" });
@@ -85,15 +83,11 @@ export function Showreel() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showControls, setShowControls] = useState(true);
   const [isEnded, setIsEnded] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
-  const [supportsPiP, setSupportsPiP] = useState(false);
-
-  // Check PiP capability
-  useEffect(() => {
-    if (typeof document !== "undefined" && "pictureInPictureEnabled" in document) {
-      setSupportsPiP(true);
-    }
-  }, []);
+  const supportsPiP = useSyncExternalStore(
+    () => () => {},
+    () => typeof document !== "undefined" && "pictureInPictureEnabled" in document,
+    () => false
+  );
 
   // Listen for custom trigger from Hero or Navbar
   useEffect(() => {
@@ -104,7 +98,6 @@ export function Showreel() {
           .play()
           .then(() => {
             setIsPlaying(true);
-            setHasStarted(true);
             setIsEnded(false);
           })
           .catch(() => {});
@@ -156,7 +149,6 @@ export function Showreel() {
         .play()
         .then(() => {
           setIsPlaying(true);
-          setHasStarted(true);
           setIsEnded(false);
         })
         .catch(() => {});

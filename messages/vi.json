@@ -36,9 +36,16 @@
     "contactMe": "Liên hệ với tôi",
     "findMeOn": "Kết nối qua",
     "scroll": "Cuộn xuống",
+    "copyEmail": "Sao chép Email",
+    "copiedFeedback": "Đã sao chép! ✓",
+    "clickToCopy": "Nhấp để sao chép email",
     "codeVisual": {
       "role": "Kỹ sư Fullstack",
-      "passion": "Xây dựng hệ thống hiệu năng cao"
+      "passion": "Xây dựng hệ thống hiệu năng cao",
+      "tabProfile": "Profile.ts",
+      "tabStack": "Stack.json",
+      "tabStatus": "Status.log",
+      "playShowreel": "developer.playShowreel()"
     }
   },
   "showreel": {
@@ -73,7 +80,7 @@
   },
   "about": {
     "title": "Về bản thân",
-    "subtitle": "Khám phá hành trình và định hướng phát triển phần mềm của tôi",
+    "subtitle": "Khám phá hành trình phát triển, triết lý kỹ thuật và nền tảng công nghệ thực chiến của tôi",
     "description": "Tôi là một Lập trình viên Fullstack với kinh nghiệm thực tế xuyên suốt quy trình phát triển phần mềm — từ thiết kế kiến trúc backend, xây dựng RESTful API đến phát triển giao diện người dùng mượt mà và triển khai hệ thống trên nền tảng đám mây.\n\nThế mạnh của tôi bao gồm các hệ thống doanh nghiệp (Java Spring Boot, ASP.NET Core, NestJS), framework frontend hiện đại (React, Next.js, Angular) và điện toán đám mây (AWS, Azure). Tôi đặc biệt đam mê hệ thống truyền thông thời gian thực, kiến trúc microservices và phát triển phần mềm có khả năng chịu tải lớn.\n\nHiện tại, tôi tập trung vào phát triển hệ thống ERP doanh nghiệp, tối ưu hóa hiệu năng cơ sở dữ liệu và ứng dụng các công cụ AI vào quy trình kỹ thuật phần mềm.",
     "cards": {
       "experience": "Kinh nghiệm",
@@ -84,6 +91,92 @@
       "currentRoleValue": "Phát triển ERP doanh nghiệp",
       "location": "Địa điểm",
       "locationValue": "Việt Nam"
+    },
+    "bento": {
+      "bio": {
+        "badge": "Hồ sơ & Triết lý kỹ thuật",
+        "heading": "Xây dựng hệ thống bền bỉ, tối ưu và mở rộng với sự chuẩn xác",
+        "p1": "Tôi là một Lập trình viên Fullstack với kinh nghiệm thực tế xuyên suốt quy trình phát triển phần mềm — từ thiết kế kiến trúc backend cho các hệ thống trọng yếu và tối ưu cơ sở dữ liệu quan hệ, đến xây dựng giao diện hiện đại, mượt mà và tối ưu hiệu năng.",
+        "p2": "Triết lý kỹ thuật của tôi tập trung vào sự tinh gọn, phân định ranh giới kiến trúc rõ ràng và hiệu năng có thể đo lường. Dù là tối ưu các Stored Procedure phức tạp trên SQL Server cho ERP doanh nghiệp hay thiết kế microservices thời gian thực, tôi luôn ưu tiên độ ổn định trên môi trường production.",
+        "quote": "\"Code được đọc nhiều hơn rất nhiều lần so với lúc viết. Hãy xây dựng với sự rõ ràng, mở rộng với kỷ luật và triển khai chuẩn xác.\"",
+        "tagClean": "Kiến trúc sạch",
+        "tagDomain": "Tư duy Domain-Driven",
+        "tagZero": "Mục tiêu Zero-Downtime"
+      },
+      "radar": {
+        "badge": "Tech Radar Thực Chiến",
+        "title": "Công nghệ cốt lõi trong Production",
+        "subtitle": "Các công nghệ được tôi sử dụng và triển khai thực tế hàng ngày",
+        "items": {
+          "sql": {
+            "name": "SQL Server & Stored Procs",
+            "desc": "Viết SPs phức tạp, tinh chỉnh Execution Plan, tối ưu chỉ mục indexing",
+            "tag": "ERP Doanh Nghiệp"
+          },
+          "nestjs": {
+            "name": "NestJS Microservices",
+            "desc": "Kiến trúc module, cổng WebSocket & REST, quản lý phụ thuộc DI",
+            "tag": "Backend Lõi"
+          },
+          "nextjs": {
+            "name": "Next.js 16 & React 19",
+            "desc": "App Router, Server Actions, quản lý state hiện đại, tối ưu SSR",
+            "tag": "Frontend"
+          },
+          "redis": {
+            "name": "Redis Pub/Sub & Caching",
+            "desc": "Bộ nhớ đệm phản hồi dưới 1ms, session phân tán, phát tán sự kiện",
+            "tag": "Hiệu Năng"
+          },
+          "ai": {
+            "name": "Công cụ hỗ trợ AI",
+            "desc": "Tích hợp LLM agent, tự động hóa quy trình, tối ưu năng suất kỹ thuật",
+            "tag": "Năng Suất"
+          }
+        }
+      },
+      "values": {
+        "badge": "Giá Trị Kỹ Thuật",
+        "title": "Nguyên Tắc Kỹ Thuật Cốt Lõi",
+        "subtitle": "Tiêu chuẩn định hướng từng dòng mã và quyết định kiến trúc hệ thống",
+        "items": {
+          "clean": {
+            "title": "Kiến trúc sạch (Clean Architecture)",
+            "desc": "Tách biệt rõ ràng các tầng nghiệp vụ, đảm bảo type-safety, duy trì và nâng cấp bền vững."
+          },
+          "scale": {
+            "title": "Khả năng mở rộng cao (Scalability)",
+            "desc": "Kiến trúc microservices phân tán, API stateless và thiết kế sẵn sàng chịu tải lớn."
+          },
+          "perf": {
+            "title": "Hiệu năng API dưới 100ms",
+            "desc": "Tối ưu truy vấn DB, phân tích execution plan, bộ nhớ đệm Redis và giảm thiểu TTFB."
+          },
+          "realtime": {
+            "title": "Hệ thống thời gian thực (Real-Time)",
+            "desc": "Kết nối WebSocket độ trễ thấp, pub/sub channels, event stream và đồng bộ dữ liệu tức thì."
+          }
+        }
+      },
+      "facts": {
+        "badge": "Thông Tin Nhanh",
+        "title": "Tổng quan & Vị trí",
+        "experience": "Kinh nghiệm",
+        "experienceValue": "2+ Năm",
+        "experienceDesc": "Thực chiến hệ thống & Web",
+        "role": "Lĩnh vực trọng tâm",
+        "roleValue": "Phát triển ERP Doanh Nghiệp",
+        "roleDesc": "Hệ thống quản trị cốt lõi",
+        "location": "Địa điểm",
+        "locationValue": "Việt Nam",
+        "locationDesc": "Sẵn sàng làm Remote & Hybrid",
+        "timezone": "Múi giờ",
+        "timezoneValue": "ICT (UTC+7)",
+        "timezoneDesc": "Linh hoạt phối hợp múi giờ quốc tế",
+        "status": "Trạng thái",
+        "statusValue": "Sẵn sàng cho cơ hội mới",
+        "statusDesc": "Vị trí Fullstack / Backend"
+      }
     }
   },
   "experience": {
@@ -166,5 +259,24 @@
     "copyright": "© {year} {name}. Tất cả các quyền được bảo lưu.",
     "madeWith": "Xây dựng với",
     "backToTop": "Lên đầu trang"
+  },
+  "commandPalette": {
+    "openPalette": "Bảng điều khiển lệnh",
+    "searchPlaceholder": "Nhập lệnh hoặc tìm kiếm phần nội dung...",
+    "searchPlaceholderShort": "Tìm kiếm hoặc chuyển tới...",
+    "search": "Tìm kiếm",
+    "noResults": "Không tìm thấy kết quả cho \"{query}\"",
+    "navigationGroup": "Điều hướng trang",
+    "actionsGroup": "Thao tác nhanh",
+    "toggleTheme": "Đổi giao diện Sáng / Tối",
+    "themeLight": "Chuyển sang giao diện Sáng",
+    "themeDark": "Chuyển sang giao diện Tối",
+    "copyEmail": "Sao chép địa chỉ Email",
+    "emailCopied": "Đã sao chép email vào bộ nhớ tạm!",
+    "downloadResume": "Tải hồ sơ CV (PDF)",
+    "openGithub": "Xem trang cá nhân GitHub",
+    "navigationHint": "Điều hướng",
+    "selectHint": "Chọn",
+    "closeHint": "Đóng"
   }
 }

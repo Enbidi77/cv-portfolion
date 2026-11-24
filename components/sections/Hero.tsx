@@ -1,17 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Mail, ChevronDown, Play } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  Mail,
+  ChevronDown,
+  Play,
+  Copy,
+  Check,
+  FileCode,
+  Braces,
+  Terminal,
+  GitBranch,
+} from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { GithubIcon } from "@/components/ui/brand-icons";
 import { personalInfo, socialLinks } from "@/data/personal";
 import type { Locale } from "@/types";
 
-const socialIcons: Record<string, React.ComponentType<{ className?: string }>> =
-  {
-    github: GithubIcon,
-    mail: Mail,
-  };
+const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  github: GithubIcon,
+  mail: Mail,
+};
 
 const staticParticles = [
   { width: 4.2, height: 4.2, left: 12, top: 18, x: 8, duration: 6.5, delay: 0.2 },
@@ -66,46 +77,74 @@ function FloatingParticles() {
   );
 }
 
-function CodeVisual({ role, passion }: { role: string; passion: string }) {
-  const lines = [
-    { indent: 0, text: "const developer = {", color: "text-blue-400" },
-    {
-      indent: 1,
-      text: 'name: "Nguyen Bao Duy",',
-      color: "text-emerald-400",
-    },
-    {
-      indent: 1,
-      text: `role: "${role}",`,
-      color: "text-emerald-400",
-    },
-    {
-      indent: 1,
-      text: "skills: [",
-      color: "text-blue-400",
-    },
-    {
-      indent: 2,
-      text: '"TypeScript", "Java", "C#",',
-      color: "text-amber-400",
-    },
-    {
-      indent: 2,
-      text: '"NestJS", "Spring Boot",',
-      color: "text-amber-400",
-    },
-    {
-      indent: 2,
-      text: '"React", "Next.js", "Angular"',
-      color: "text-amber-400",
-    },
+type TabKey = "profile" | "stack" | "status";
+
+const tabsConfig: {
+  key: TabKey;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badgeColor: string;
+}[] = [
+  { key: "profile", label: "Profile.ts", icon: FileCode, badgeColor: "text-blue-400" },
+  { key: "stack", label: "Stack.json", icon: Braces, badgeColor: "text-amber-400" },
+  { key: "status", label: "Status.log", icon: Terminal, badgeColor: "text-emerald-400" },
+];
+
+function CodeVisual({
+  role,
+  passion,
+}: {
+  role: string;
+  passion: string;
+}) {
+  const [activeTab, setActiveTab] = useState<TabKey>("profile");
+
+  const profileLines = [
+    { indent: 0, text: "export const developer: FullstackEngineer = {", color: "text-blue-400" },
+    { indent: 1, text: `name: "${personalInfo.name}",`, color: "text-emerald-400" },
+    { indent: 1, text: `role: "${role}",`, color: "text-emerald-400" },
+    { indent: 1, text: 'location: "Vietnam (Remote / Hybrid)",', color: "text-amber-300" },
+    { indent: 1, text: 'experience: "2+ Years in Production",', color: "text-teal-300" },
+    { indent: 1, text: "architecture: [", color: "text-blue-400" },
+    { indent: 2, text: '"Enterprise ERP Systems",', color: "text-sky-300" },
+    { indent: 2, text: '"High-Throughput Microservices",', color: "text-sky-300" },
+    { indent: 2, text: '"Sub-100ms API Optimization"', color: "text-sky-300" },
     { indent: 1, text: "],", color: "text-blue-400" },
-    {
-      indent: 1,
-      text: `passion: "${passion}"`,
-      color: "text-purple-400",
-    },
+    { indent: 1, text: `passion: "${passion}",`, color: "text-purple-400" },
+    { indent: 1, text: "availableForHire: true,", color: "text-rose-400 font-semibold" },
     { indent: 0, text: "};", color: "text-blue-400" },
+  ];
+
+  const stackJsonLines = [
+    { indent: 0, text: "{", color: "text-muted-foreground" },
+    { indent: 1, text: '"runtime": ["TypeScript", "Java 21", "C# .NET 8"],', color: "text-sky-400" },
+    { indent: 1, text: '"backend": {', color: "text-blue-400" },
+    { indent: 2, text: '"frameworks": ["NestJS", "Spring Boot", "ASP.NET Core"],', color: "text-emerald-400" },
+    { indent: 2, text: '"databases": ["SQL Server (Stored Procs)", "PostgreSQL"],', color: "text-amber-400" },
+    { indent: 2, text: '"messaging": ["Redis Pub/Sub", "AWS SQS", "WebSockets"]', color: "text-purple-400" },
+    { indent: 1, text: "},", color: "text-blue-400" },
+    { indent: 1, text: '"frontend": ["Next.js 16", "React 19", "Tailwind CSS 4"],', color: "text-cyan-400" },
+    { indent: 1, text: '"infrastructure": ["Docker", "Azure VMs", "AWS SES/Lambda"],', color: "text-teal-400" },
+    { indent: 1, text: '"practices": ["Clean Architecture", "Query Tuning", "CI/CD"]', color: "text-indigo-400" },
+    { indent: 0, text: "}", color: "text-muted-foreground" },
+  ];
+
+  const activeTechPills = [
+    { name: "SQL Server (SPs)", color: "border-amber-500/30 bg-amber-500/10 text-amber-300" },
+    { name: "NestJS Microservices", color: "border-rose-500/30 bg-rose-500/10 text-rose-300" },
+    { name: "Next.js 16 / React 19", color: "border-sky-500/30 bg-sky-500/10 text-sky-300" },
+    { name: "Redis Pub/Sub", color: "border-red-500/30 bg-red-500/10 text-red-300" },
+    { name: "Spring Boot", color: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300" },
+    { name: "AI Tooling", color: "border-purple-500/30 bg-purple-500/10 text-purple-300" },
+  ];
+
+  const statusLogs = [
+    { time: "09:00:12", level: "SYS", text: "Runtime initialized with Node.js & .NET", color: "text-blue-400" },
+    { time: "09:00:13", level: "INFO", text: "Enterprise ERP: Maintenance & stored procedures active", color: "text-emerald-400" },
+    { time: "09:00:14", level: "PERF", text: "SQL Server query execution plan optimized (-42% I/O)", color: "text-amber-400" },
+    { time: "09:00:15", level: "EVENT", text: "NestJS microservice WebSocket gateway connected", color: "text-cyan-400" },
+    { time: "09:00:16", level: "METRIC", text: "Health check: 100% UP | API avg response latency: 32ms", color: "text-emerald-400" },
+    { time: "LIVE NOW", level: "LIVE", text: "Available for High-Impact Fullstack / Backend Roles", color: "text-primary font-semibold" },
   ];
 
   return (
@@ -115,68 +154,204 @@ function CodeVisual({ role, passion }: { role: string; passion: string }) {
       transition={{ duration: 0.8, delay: 0.5 }}
       className="hidden lg:block relative"
     >
-      <div className="relative rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-sm shadow-xl">
-        {/* Window dots */}
-        <div className="mb-4 flex gap-2">
-          <div className="h-3 w-3 rounded-full bg-red-400/60" />
-          <div className="h-3 w-3 rounded-full bg-amber-400/60" />
-          <div className="h-3 w-3 rounded-full bg-emerald-400/60" />
-        </div>
-        {/* Code lines */}
-        <div className="space-y-1.5 font-mono text-sm">
-          {lines.map((line, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8 + i * 0.08 }}
-              className="flex items-center"
-            >
-              <span className="mr-4 w-6 text-right text-xs text-muted-foreground/40 select-none">
-                {i + 1}
-              </span>
-              <span style={{ paddingLeft: `${line.indent * 1.5}rem` }}>
-                <span className={line.color}>{line.text}</span>
-              </span>
-            </motion.div>
-          ))}
-        </div>
-        {/* Cursor */}
-        <motion.div
-          className="absolute bottom-16 left-[3.5rem] h-5 w-0.5 bg-primary"
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-        />
+      <div className="relative rounded-2xl border border-border/60 bg-card/40 backdrop-blur-md shadow-2xl overflow-hidden">
+        {/* Mini-IDE Window Chrome & Tab Bar */}
+        <div className="flex items-center justify-between border-b border-border/50 bg-muted/40 px-4 py-2.5">
+          {/* macOS window dots */}
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-full bg-red-400/80 transition-opacity hover:opacity-100" />
+            <span className="h-3 w-3 rounded-full bg-amber-400/80 transition-opacity hover:opacity-100" />
+            <span className="h-3 w-3 rounded-full bg-emerald-400/80 transition-opacity hover:opacity-100" />
+            <span className="ml-2 text-[11px] font-mono text-muted-foreground/50 hidden xl:inline">
+              duy-ide ~ /src/core
+            </span>
+          </div>
 
-        {/* Terminal Run Showreel action */}
-        <button
-          type="button"
-          onClick={() => {
-            const el = document.getElementById("showreel");
-            if (el) {
-              const offset = 80;
-              const top = el.getBoundingClientRect().top + window.scrollY - offset;
-              window.scrollTo({ top, behavior: "smooth" });
-              setTimeout(() => {
-                window.dispatchEvent(new CustomEvent("play-showreel"));
-              }, 600);
-            }
-          }}
-          className="mt-4 flex w-full items-center justify-between rounded-xl border border-primary/20 bg-primary/5 px-3.5 py-2 text-xs font-mono text-primary transition-all hover:border-primary/50 hover:bg-primary/10 cursor-pointer"
-        >
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-muted-foreground">$</span>
-            <span>developer.playShowreel()</span>
-          </span>
-          <span className="flex items-center gap-1.5 font-medium text-primary">
-            <Play className="h-3 w-3 fill-primary" />
-            <span>01:05 MP4</span>
-          </span>
-        </button>
+          {/* Interactive Clickable Tabs */}
+          <div className="flex items-center gap-1">
+            {tabsConfig.map((tab) => {
+              const TabIcon = tab.icon;
+              const isActive = activeTab === tab.key;
+              return (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-mono transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-card text-foreground shadow-sm border border-border/70 font-medium"
+                      : "text-muted-foreground/70 hover:bg-card/40 hover:text-foreground"
+                  }`}
+                  aria-label={`Switch to ${tab.label}`}
+                >
+                  <TabIcon className={`h-3.5 w-3.5 ${tab.badgeColor}`} />
+                  <span>{tab.label}</span>
+                  {isActive && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse ml-0.5" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Tab Content Panes */}
+        <div className="p-5 font-mono text-xs sm:text-sm min-h-[340px] flex flex-col justify-between">
+          <AnimatePresence mode="wait">
+            {activeTab === "profile" && (
+              <motion.div
+                key="profile"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="space-y-1.5"
+              >
+                {profileLines.map((line, i) => (
+                  <div key={i} className="flex items-center leading-relaxed">
+                    <span className="mr-3 w-5 text-right text-xs text-muted-foreground/35 select-none font-mono">
+                      {i + 1}
+                    </span>
+                    <span style={{ paddingLeft: `${line.indent * 1.25}rem` }}>
+                      <span className={line.color}>{line.text}</span>
+                    </span>
+                  </div>
+                ))}
+              </motion.div>
+            )}
+
+            {activeTab === "stack" && (
+              <motion.div
+                key="stack"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="space-y-3"
+              >
+                <div className="space-y-1">
+                  {stackJsonLines.map((line, i) => (
+                    <div key={i} className="flex items-center leading-relaxed">
+                      <span className="mr-3 w-5 text-right text-xs text-muted-foreground/35 select-none font-mono">
+                        {i + 1}
+                      </span>
+                      <span style={{ paddingLeft: `${line.indent * 1.25}rem` }}>
+                        <span className={line.color}>{line.text}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Visual Active Stack Pills */}
+                <div className="pt-2 border-t border-border/40">
+                  <div className="text-[11px] text-muted-foreground mb-1.5 font-sans font-medium">
+                    Active Production Highlights:
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {activeTechPills.map((pill) => (
+                      <span
+                        key={pill.name}
+                        className={`rounded-md border px-2 py-0.5 text-[11px] font-mono ${pill.color}`}
+                      >
+                        {pill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === "status" && (
+              <motion.div
+                key="status"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="space-y-2 font-mono text-xs"
+              >
+                <div className="flex items-center justify-between pb-2 border-b border-border/40 text-[11px] text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                    LIVE ENTERPRISE MONITOR
+                  </span>
+                  <span>LATENCY: 32ms</span>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  {statusLogs.map((log, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-2 rounded-md bg-muted/20 p-1.5 transition-colors hover:bg-muted/40"
+                    >
+                      <span className="text-muted-foreground/50 select-none text-[11px]">
+                        [{log.time}]
+                      </span>
+                      <span className="rounded bg-primary/10 px-1 py-0.2 text-[10px] font-bold text-primary">
+                        {log.level}
+                      </span>
+                      <span className={`flex-1 ${log.color}`}>{log.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground">
+                  <span className="text-emerald-400">$</span>
+                  <span>ready for deployment</span>
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                    className="inline-block h-3.5 w-1.5 bg-primary"
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* IDE Footer: Status Bar + Terminal Run Showreel Action */}
+          <div className="mt-4 pt-3 border-t border-border/40 flex flex-col gap-2">
+            <div className="flex items-center justify-between text-[11px] text-muted-foreground/60 font-mono">
+              <span className="flex items-center gap-1.5">
+                <GitBranch className="h-3 w-3 text-primary/70" />
+                <span>main*</span>
+                <span className="ml-2 text-emerald-400/80">0 errors</span>
+              </span>
+              <span>UTF-8 • {activeTab.toUpperCase()}</span>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById("showreel");
+                if (el) {
+                  const offset = 80;
+                  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                  window.scrollTo({ top, behavior: "smooth" });
+                  setTimeout(() => {
+                    window.dispatchEvent(new CustomEvent("play-showreel"));
+                  }, 600);
+                }
+              }}
+              className="flex w-full items-center justify-between rounded-xl border border-primary/20 bg-primary/5 px-3.5 py-2 text-xs font-mono text-primary transition-all hover:border-primary/50 hover:bg-primary/10 cursor-pointer shadow-sm group"
+            >
+              <span className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-muted-foreground">$</span>
+                <span className="group-hover:text-foreground transition-colors">
+                  developer.playShowreel()
+                </span>
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-primary">
+                <Play className="h-3 w-3 fill-primary group-hover:scale-110 transition-transform" />
+                <span>01:05 MP4</span>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-      {/* Glow */}
-      <div className="absolute -inset-4 -z-10 rounded-3xl bg-primary/5 blur-2xl" />
+
+      {/* Ambient background glow */}
+      <div className="absolute -inset-4 -z-10 rounded-3xl bg-primary/10 blur-2xl" />
     </motion.div>
   );
 }
@@ -184,6 +359,15 @@ function CodeVisual({ role, passion }: { role: string; passion: string }) {
 export function Hero() {
   const t = useTranslations("hero");
   const locale = useLocale() as Locale;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(personalInfo.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    }
+  };
 
   return (
     <section
@@ -202,16 +386,55 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left content */}
           <div className="relative z-10 space-y-8">
-            {/* Badge */}
+            {/* Badges & 1-Click Copy Email Pill */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="flex flex-wrap items-center gap-3"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+              {/* Availability Badge */}
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary shadow-sm backdrop-blur-sm">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                 {t("availableBadge")}
               </span>
+
+              {/* Sleek 1-Click Copy Email Pill */}
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="group relative inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3.5 py-1.5 text-xs font-mono text-muted-foreground backdrop-blur-md transition-all hover:border-primary/50 hover:bg-card hover:text-foreground hover:shadow-sm active:scale-95 cursor-pointer"
+                aria-label="Copy email address"
+                title={copied ? t("copiedFeedback") : t("clickToCopy")}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  {copied ? (
+                    <motion.span
+                      key="copied"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.15 }}
+                      className="inline-flex items-center gap-1.5 font-medium text-emerald-400"
+                    >
+                      <Check className="h-3.5 w-3.5 text-emerald-400" />
+                      <span>{t("copiedFeedback")}</span>
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="copy"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.15 }}
+                      className="inline-flex items-center gap-1.5"
+                    >
+                      <Copy className="h-3.5 w-3.5 text-primary/70 transition-colors group-hover:text-primary" />
+                      <span className="select-all">{personalInfo.email}</span>
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </button>
             </motion.div>
 
             {/* Name & Title */}
@@ -288,7 +511,7 @@ export function Hero() {
               </a>
             </motion.div>
 
-            {/* Social Links */}
+            {/* Social Links & Quick Contact info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -316,7 +539,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right visual */}
+          {/* Right visual - Interactive Mini-IDE */}
           <CodeVisual
             role={t("codeVisual.role")}
             passion={t("codeVisual.passion")}

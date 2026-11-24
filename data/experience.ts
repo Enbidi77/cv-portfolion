@@ -4,6 +4,7 @@ export const experiences: Experience[] = [
   {
     id: "enterprise-erp",
     company: "Enterprise ERP Company",
+    monogram: "ERP",
     role: {
       en: "Fullstack Developer",
       vi: "Lập trình viên Fullstack",
@@ -13,6 +14,28 @@ export const experiences: Experience[] = [
       vi: "2025 – Hiện tại",
     },
     isCurrent: true,
+    impactBadges: {
+      en: [
+        "+40% Query Performance",
+        "Enterprise ERP Monorepo",
+        "Sub-100ms API Latency",
+        "High-Availability APIs",
+      ],
+      vi: [
+        "+40% Hiệu năng truy vấn",
+        "Hệ thống ERP Monorepo",
+        "Độ trễ API <100ms",
+        "APIs độ sẵn sàng cao",
+      ],
+    },
+    technologies: [
+      "SQL Server",
+      "Stored Procedures",
+      "Query Tuning",
+      "C# / ASP.NET",
+      "Database Indexing",
+      "Enterprise Architecture",
+    ],
     responsibilities: {
       en: [
         "Maintain and enhance enterprise ERP systems serving critical business operations",
@@ -33,6 +56,7 @@ export const experiences: Experience[] = [
   {
     id: "tps-software",
     company: "TPS Software",
+    monogram: "TPS",
     role: {
       en: "Backend Web Developer",
       vi: "Lập trình viên Backend Web",
@@ -42,6 +66,29 @@ export const experiences: Experience[] = [
       vi: "2023 – 2024",
     },
     isCurrent: false,
+    impactBadges: {
+      en: [
+        "High-Availability APIs",
+        "Distributed Cloud Architecture",
+        "Multi-Tenant Services",
+        "AI-Assisted CI/CD",
+      ],
+      vi: [
+        "APIs độ sẵn sàng cao",
+        "Kiến trúc đám mây phân tán",
+        "Dịch vụ Multi-Tenant",
+        "Tự động hóa CI/CD với AI",
+      ],
+    },
+    technologies: [
+      "React",
+      "Angular",
+      "AWS (SES, SQS, Lambda, DynamoDB)",
+      "Azure App Service",
+      "Docker",
+      "RESTful APIs",
+      "GitHub Actions",
+    ],
     responsibilities: {
       en: [
         "Developed RESTful APIs and backend services for client projects",

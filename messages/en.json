@@ -36,9 +36,16 @@
     "contactMe": "Contact Me",
     "findMeOn": "Find me on",
     "scroll": "Scroll",
+    "copyEmail": "Copy Email",
+    "copiedFeedback": "Copied! ✓",
+    "clickToCopy": "Click to copy email",
     "codeVisual": {
       "role": "Fullstack Developer",
-      "passion": "Building scalable systems"
+      "passion": "Building scalable systems",
+      "tabProfile": "Profile.ts",
+      "tabStack": "Stack.json",
+      "tabStatus": "Status.log",
+      "playShowreel": "developer.playShowreel()"
     }
   },
   "showreel": {
@@ -73,7 +80,7 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Get to know me and my journey as a developer",
+    "subtitle": "Get to know my engineering journey, technical philosophy, and active tech radar",
     "description": "I am a Fullstack Web Developer with hands-on experience across the full software development lifecycle — from designing backend architectures and building RESTful APIs, to crafting responsive frontend interfaces and deploying applications to the cloud.\n\nMy expertise spans enterprise backend systems (Java Spring Boot, ASP.NET Core, NestJS), modern frontend frameworks (React, Next.js, Angular), and cloud platforms (AWS, Azure). I have a strong passion for real-time communication systems, microservices architecture, and building software that scales.\n\nCurrently, I'm focused on enterprise ERP development, optimizing database performance, and leveraging AI-assisted tools to improve development workflows.",
     "cards": {
       "experience": "Experience",
@@ -84,6 +91,92 @@
       "currentRoleValue": "Enterprise ERP Development",
       "location": "Location",
       "locationValue": "Vietnam"
+    },
+    "bento": {
+      "bio": {
+        "badge": "Bio & Philosophy",
+        "heading": "Crafting Scalable, Resilient Software with Precision",
+        "p1": "I am a Fullstack Web Developer with hands-on experience across the entire software development lifecycle — from designing mission-critical backend architectures and optimizing relational databases to crafting high-performance, fluid user interfaces.",
+        "p2": "My engineering philosophy centers on simplicity, clean domain boundaries, and measurable performance. Whether tuning complex SQL Server stored procedures for enterprise ERP systems or designing reactive real-time microservices, I build software that thrives in production.",
+        "quote": "\"Code is read far more often than it is written. Build for clarity, optimize for scale, deploy with discipline.\"",
+        "tagClean": "Clean Architecture",
+        "tagDomain": "Domain-Driven Mindset",
+        "tagZero": "Zero-Downtime Mentality"
+      },
+      "radar": {
+        "badge": "Active Tech Radar",
+        "title": "Core Technologies in Production",
+        "subtitle": "Actively developed & deployed in my daily engineering stack",
+        "items": {
+          "sql": {
+            "name": "SQL Server & Stored Procs",
+            "desc": "Complex SPs, query optimization, execution plan tuning, indexing",
+            "tag": "Enterprise ERP"
+          },
+          "nestjs": {
+            "name": "NestJS Microservices",
+            "desc": "Modular architecture, REST & WebSocket gateways, clean DI",
+            "tag": "Backend Core"
+          },
+          "nextjs": {
+            "name": "Next.js 16 & React 19",
+            "desc": "App Router, Server Actions, modern UI state, SSR performance",
+            "tag": "Frontend"
+          },
+          "redis": {
+            "name": "Redis Pub/Sub & Caching",
+            "desc": "Sub-millisecond data cache, distributed session state, event broadcasting",
+            "tag": "Performance"
+          },
+          "ai": {
+            "name": "AI-Assisted Tooling",
+            "desc": "LLM agent integration, automated workflows, intelligent developer tooling",
+            "tag": "Productivity"
+          }
+        }
+      },
+      "values": {
+        "badge": "Engineering Values",
+        "title": "Core Technical Principles",
+        "subtitle": "Standards that guide every line of code and architectural decision",
+        "items": {
+          "clean": {
+            "title": "Clean Architecture",
+            "desc": "Decoupled domain layers, strict type safety, modular services that stay maintainable over years."
+          },
+          "scale": {
+            "title": "High Scalability",
+            "desc": "Distributed microservices, stateless APIs, and architectures engineered to scale under load."
+          },
+          "perf": {
+            "title": "Sub-100ms API Performance",
+            "desc": "Aggressive DB indexing, execution plan tuning, in-memory Redis caching, and minimal TTFB."
+          },
+          "realtime": {
+            "title": "Real-Time Messaging",
+            "desc": "Low-latency WebSockets, pub/sub channels, event streams, and reactive state sync."
+          }
+        }
+      },
+      "facts": {
+        "badge": "At A Glance",
+        "title": "Quick Facts & Location",
+        "experience": "Experience",
+        "experienceValue": "2+ Years",
+        "experienceDesc": "Enterprise & Web Production",
+        "role": "Current Focus",
+        "roleValue": "Enterprise ERP Development",
+        "roleDesc": "Critical Business Systems",
+        "location": "Location",
+        "locationValue": "Vietnam",
+        "locationDesc": "Open to Remote & Hybrid",
+        "timezone": "Timezone",
+        "timezoneValue": "ICT (UTC+7)",
+        "timezoneDesc": "Flexible global overlap",
+        "status": "Availability",
+        "statusValue": "Available for Opportunities",
+        "statusDesc": "Fullstack / Backend roles"
+      }
     }
   },
   "experience": {
@@ -166,5 +259,24 @@
     "copyright": "© {year} {name}. All rights reserved.",
     "madeWith": "Built with",
     "backToTop": "Back to top"
+  },
+  "commandPalette": {
+    "openPalette": "Command Palette",
+    "searchPlaceholder": "Type a command or search sections...",
+    "searchPlaceholderShort": "Search or jump to...",
+    "search": "Search",
+    "noResults": "No results found for \"{query}\"",
+    "navigationGroup": "Navigation",
+    "actionsGroup": "Quick Actions",
+    "toggleTheme": "Toggle Theme",
+    "themeLight": "Switch to Light Mode",
+    "themeDark": "Switch to Dark Mode",
+    "copyEmail": "Copy Email Address",
+    "emailCopied": "Email copied to clipboard!",
+    "downloadResume": "Download PDF Resume",
+    "openGithub": "Open GitHub Profile",
+    "navigationHint": "Navigate",
+    "selectHint": "Select",
+    "closeHint": "Close"
   }
 }
