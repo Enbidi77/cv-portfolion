@@ -15,6 +15,7 @@
   "navigation": {
     "home": "Trang chủ",
     "about": "Giới thiệu",
+    "showreel": "Showreel",
     "experience": "Kinh nghiệm",
     "skills": "Kỹ năng",
     "projects": "Dự án",
@@ -31,12 +32,43 @@
     "role": "Lập trình viên Fullstack",
     "tagline": "Xây dựng ứng dụng web có khả năng mở rộng, hệ thống thời gian thực và trải nghiệm kỹ thuật số hiện đại.",
     "viewProjects": "Xem dự án",
+    "watchShowreel": "Xem Showreel",
     "contactMe": "Liên hệ với tôi",
     "findMeOn": "Kết nối qua",
     "scroll": "Cuộn xuống",
     "codeVisual": {
       "role": "Kỹ sư Fullstack",
       "passion": "Xây dựng hệ thống hiệu năng cao"
+    }
+  },
+  "showreel": {
+    "badge": "Hồ Sơ Đồ Họa Chuyển Động",
+    "title": "Video Showreel CV",
+    "subtitle": "Hành trình sự nghiệp, nền tảng công nghệ và năng lực kỹ thuật qua video motion graphic 1 phút",
+    "fileName": "Nguyen_Bao_Duy_Showreel.mp4",
+    "fileInfo": "1080p • 60 FPS • 01:05",
+    "play": "Phát",
+    "pause": "Tạm dừng",
+    "mute": "Tắt tiếng",
+    "unmute": "Bật tiếng",
+    "replay": "Phát lại",
+    "fullscreen": "Toàn màn hình",
+    "exitFullscreen": "Thoát toàn màn hình",
+    "pip": "Thu nhỏ (PiP)",
+    "features": {
+      "motionSummary": {
+        "title": "Tóm tắt trực quan 1 phút",
+        "desc": "Tổng hợp nhanh hơn 2 năm kinh nghiệm thực chiến kiến trúc doanh nghiệp, hệ thống thời gian thực và các dự án lõi."
+      },
+      "techStack": {
+        "title": "Kỹ thuật Fullstack & Cloud",
+        "desc": "Trực quan hóa sinh động thế mạnh Java Spring Boot, ASP.NET Core, NestJS, Next.js, Docker và kiến trúc đám mây."
+      },
+      "resumeDownload": {
+        "title": "Tài liệu CV chính thức",
+        "desc": "Bạn cần bản hồ sơ PDF tiêu chuẩn cho bộ phận tuyển dụng hoặc lưu trữ? Tải trực tiếp tại đây.",
+        "action": "Tải CV bản PDF"
+      }
     }
   },
   "about": {

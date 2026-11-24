@@ -24,6 +24,7 @@ export interface SocialLink {
 export type NavKey =
   | "home"
   | "about"
+  | "showreel"
   | "experience"
   | "skills"
   | "projects"

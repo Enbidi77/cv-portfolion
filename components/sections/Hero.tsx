@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, ChevronDown, Play } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { GithubIcon } from "@/components/ui/brand-icons";
 import { personalInfo, socialLinks } from "@/data/personal";
@@ -143,10 +143,37 @@ function CodeVisual({ role, passion }: { role: string; passion: string }) {
         </div>
         {/* Cursor */}
         <motion.div
-          className="absolute bottom-6 left-[3.5rem] h-5 w-0.5 bg-primary"
+          className="absolute bottom-16 left-[3.5rem] h-5 w-0.5 bg-primary"
           animate={{ opacity: [1, 0] }}
           transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
         />
+
+        {/* Terminal Run Showreel action */}
+        <button
+          type="button"
+          onClick={() => {
+            const el = document.getElementById("showreel");
+            if (el) {
+              const offset = 80;
+              const top = el.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top, behavior: "smooth" });
+              setTimeout(() => {
+                window.dispatchEvent(new CustomEvent("play-showreel"));
+              }, 600);
+            }
+          }}
+          className="mt-4 flex w-full items-center justify-between rounded-xl border border-primary/20 bg-primary/5 px-3.5 py-2 text-xs font-mono text-primary transition-all hover:border-primary/50 hover:bg-primary/10 cursor-pointer"
+        >
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-muted-foreground">$</span>
+            <span>developer.playShowreel()</span>
+          </span>
+          <span className="flex items-center gap-1.5 font-medium text-primary">
+            <Play className="h-3 w-3 fill-primary" />
+            <span>01:05 MP4</span>
+          </span>
+        </button>
       </div>
       {/* Glow */}
       <div className="absolute -inset-4 -z-10 rounded-3xl bg-primary/5 blur-2xl" />
@@ -220,7 +247,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col gap-4 sm:flex-row"
+              className="flex flex-col gap-3.5 sm:flex-row sm:flex-wrap"
             >
               <a
                 href="#projects"
@@ -229,6 +256,29 @@ export function Hero() {
                 {t("viewProjects")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById("showreel");
+                  if (el) {
+                    const offset = 80;
+                    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: "smooth" });
+                    setTimeout(() => {
+                      window.dispatchEvent(new CustomEvent("play-showreel"));
+                    }, 600);
+                  }
+                }}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-primary/30 bg-primary/10 px-5 py-3 text-sm font-semibold text-primary backdrop-blur-sm transition-all hover:border-primary/60 hover:bg-primary/20 hover:shadow-lg hover:shadow-primary/15 hover:-translate-y-0.5 cursor-pointer"
+              >
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 transition-transform group-hover:scale-110">
+                  <Play className="h-2.5 w-2.5 fill-primary text-primary ml-0.5" />
+                </span>
+                {t("watchShowreel")}
+                <span className="rounded-md bg-primary/20 px-1.5 py-0.5 text-xs font-mono font-medium">
+                  01:05
+                </span>
+              </button>
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card/50 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5"
@@ -281,7 +331,7 @@ export function Hero() {
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <a
-          href="#about"
+          href="#showreel"
           className="flex flex-col items-center gap-2 text-muted-foreground/50 transition-colors hover:text-muted-foreground"
           aria-label={t("scroll")}
         >

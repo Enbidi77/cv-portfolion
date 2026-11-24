@@ -38,6 +38,7 @@ export const socialLinks: SocialLink[] = [
 export const navItems: NavItem[] = [
   { key: "home", href: "#home" },
   { key: "about", href: "#about" },
+  { key: "showreel", href: "#showreel" },
   { key: "experience", href: "#experience" },
   { key: "skills", href: "#skills" },
   { key: "projects", href: "#projects" },

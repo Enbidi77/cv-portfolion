@@ -15,6 +15,7 @@
   "navigation": {
     "home": "Home",
     "about": "About",
+    "showreel": "Showreel",
     "experience": "Experience",
     "skills": "Skills",
     "projects": "Projects",
@@ -31,12 +32,43 @@
     "role": "Fullstack Web Developer",
     "tagline": "Building scalable web applications, real-time systems, and modern digital experiences.",
     "viewProjects": "View Projects",
+    "watchShowreel": "Watch Showreel",
     "contactMe": "Contact Me",
     "findMeOn": "Find me on",
     "scroll": "Scroll",
     "codeVisual": {
       "role": "Fullstack Developer",
       "passion": "Building scalable systems"
+    }
+  },
+  "showreel": {
+    "badge": "Motion Graphic Resume",
+    "title": "Interactive CV Showreel",
+    "subtitle": "A dynamic 1-minute visual walkthrough of my career milestones, tech stack, and engineering capabilities",
+    "fileName": "Nguyen_Bao_Duy_Showreel.mp4",
+    "fileInfo": "1080p • 60 FPS • 01:05",
+    "play": "Play",
+    "pause": "Pause",
+    "mute": "Mute",
+    "unmute": "Unmute",
+    "replay": "Replay",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit Fullscreen",
+    "pip": "Picture-in-Picture",
+    "features": {
+      "motionSummary": {
+        "title": "Dynamic 1-Min Overview",
+        "desc": "Quick visual summary highlighting 2+ years of enterprise experience, system architecture, and core projects."
+      },
+      "techStack": {
+        "title": "Fullstack & Cloud Stack",
+        "desc": "Featuring Java Spring Boot, ASP.NET Core, NestJS, Next.js, Docker, and real-time architectures in motion."
+      },
+      "resumeDownload": {
+        "title": "Official Resume Document",
+        "desc": "Prefer a traditional document for ATS or hiring archives? Grab the verified PDF version.",
+        "action": "Download PDF Resume"
+      }
     }
   },
   "about": {
